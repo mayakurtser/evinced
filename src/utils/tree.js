@@ -18,21 +18,6 @@ function validate(json) {
 
 }
 
-function countComponents(node) {
-    if (node === null || typeof node !== 'object') return 0;
-
-    // If node has a "components" key
-    let count = Array.isArray(node.components) ? node.components.length : 0;
-
-    // Combine count with counts from child nodes
-    return Object.values(node).reduce((acc, childNode) => {
-        if (typeof childNode === 'object') {
-            return acc + countComponents(childNode);
-        }
-        return acc;
-    }, count);
-}
-
 function addKeyToAllObjects(data, itemToAdd) {
     return data?.map((item) => ({ ...item, ...itemToAdd }));
 }
@@ -64,6 +49,9 @@ function transformToTree(paths, separator = "/") {
                     children: []
                 };
                 currentLevel.push(child);
+            } else {
+                child.countComponents += value.length;
+                child.percent = getPercentage(child.countComponents, totalComponents);
             }
 
             // If it's the last key in the array, assign the value
@@ -77,13 +65,12 @@ function transformToTree(paths, separator = "/") {
                     components,
                     url: compoundKey
                 }]; // If you need to store the original value
-            } else {
-                child.countComponents = countComponents(child);
-                child.percent = getPercentage(child.countComponents, totalComponents);
             }
 
             return child.children; // Return current level's children for next iteration
         }, obj);
+
+
     }
 
     const tree = [];
@@ -113,6 +100,7 @@ function extractValues(input) {
         return acc;
     }, []);
 }
+
 
 function sortByKey(node, key) {
     if (node?.children?.length) {

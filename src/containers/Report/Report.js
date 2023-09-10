@@ -7,9 +7,7 @@ import { ReportTable } from "containers/Report/ReportTable";
 import { ReportTree } from "containers/Report/ReportTree";
 import { EMPTY_TITLE } from "./constants";
 import classes from "./Report.module.scss";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Display, Text, TYPOGRAPHY_SIZES, TYPOGRAPHY_WEIGHTS } from "common/Typography";
-import colors from "styles/colors.module.scss";
+import { useNavigate, useParams } from "react-router-dom";
 import { ValidationError } from "containers/Report/ValidationError";
 
 
@@ -44,7 +42,7 @@ const Report = () => {
 
         fetchData();
     }, [reportName, navigate]);
-
+    
     const onSelect = (selectedKeysValue, info) => {
         const { selected, selectedNodes } = info;
         if (selected) {

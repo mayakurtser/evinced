@@ -2,7 +2,7 @@
   "name": "scan-02",
   "date": "1 Apr 2023 at 8:00",
   "content": {
-    "https://www.ynet.co.il//0,7340,L-5778984,00.html": [
+    "https://www.ynet.co.il/0,7340,L-5778984,00.html": [
       {
         "type": "Accessible Name",
         "severity": "Critical",
