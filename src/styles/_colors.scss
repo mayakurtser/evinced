@@ -1,0 +1,27 @@
+$base_colors: (
+        baseTransparent: transparent,
+        baseWhite: #ffffff,
+        baseBlack: #000000,
+);
+
+$gray_colors: (
+        gray25: #fcfcfd,
+        gray50: #f9fafb,
+        gray100: #f2f4f7,
+        gray200: #eaecf0,
+        gray300: #d0d5dd,
+        gray400: #98a2b3,
+        gray500: #667085,
+        gray600: #475467,
+        gray700: #344054,
+        gray800: #1d2939,
+        gray900: #101828,
+);
+
+$colors_merge1: map_merge($base_colors, $gray_colors);
+
+$colors: $colors_merge1;
+
+@function color($color) {
+  @return map-get($colors, $color);
+}

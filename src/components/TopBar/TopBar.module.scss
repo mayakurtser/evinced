@@ -1,0 +1,24 @@
+@import "src/styles/colors";
+
+.topBar {
+  display: flex;
+  padding: 0 32px;
+  justify-content: space-between;
+  align-items: center;
+  background: color(baseWhite);
+  border-bottom: 1px solid color(gray200);
+}
+
+.title {
+  padding-right: 120px;
+}
+
+.logo {
+  display: flex;
+  width: 142px;
+  height: 32px;
+}
+
+.logout {
+  cursor: pointer;
+}
