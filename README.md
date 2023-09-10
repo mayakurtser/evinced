@@ -1,6 +1,5 @@
 # Getting Started with Create React App
 
-[Screen Recording 2023-09-11 at 0.24.59.mov](..%2F..%2F..%2FDesktop%2FScreen%20Recording%202023-09-11%20at%200.24.59.mov)
 ![img_1.png](img_1.png)
 
 ## Available Scripts
