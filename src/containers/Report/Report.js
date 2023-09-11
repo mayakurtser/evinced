@@ -25,7 +25,7 @@ const Report = () => {
             try {
                 const response = await fetch(`/assets/files/${reportName}.json`);
                 const data = await response.json();
-                const result = validate(data);
+                const result = validate(data, reportName);
                 if (result.valid) {
                     setHeader({ title: data?.name.toUpperCase(), desc: data?.date })
                     setTreeData(transformToTree(data?.content));
@@ -42,7 +42,7 @@ const Report = () => {
 
         fetchData();
     }, [reportName, navigate]);
-    
+
     const onSelect = (selectedKeysValue, info) => {
         const { selected, selectedNodes } = info;
         if (selected) {

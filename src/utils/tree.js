@@ -1,4 +1,4 @@
-function validate(json) {
+function validate(json, name) {
     if (!json) {
         return { valid: false, message: "JSON is null or undefined." };
     }
@@ -12,6 +12,9 @@ function validate(json) {
         }
         if (!json[key]) {
             return { valid: false, message: `Key "${key}" cannot be null or empty.` };
+        }
+        if (key === "name" && json[key] !== name) {
+            return { valid: false, message: `Key "${key}" has an invalid value.` };
         }
         return acc; // Keep the result as valid for now
     }, { valid: true, message: "Valid JSON." });
